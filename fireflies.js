@@ -9,7 +9,6 @@ function setup() {
   colorMode(RGB, 100);
   background(50);
   noCursor();
-  noLoop();
 }
 
 function wave() {
@@ -63,11 +62,11 @@ function draw() {
   }
 }
 
-function mouseReleased() {
-  if (mouseX > 0 && mouseX < 450 && mouseY > 0 && mouseY < 450) {
-    noLoop();
-  }
-  else {
-    loop();
-  }
-}
+// function mouseReleased() {
+//   if (mouseX > 0 && mouseX < 450 && mouseY > 0 && mouseY < 450) {
+//     noLoop();
+//   }
+//   else {
+//     loop();
+//   }
+// }
