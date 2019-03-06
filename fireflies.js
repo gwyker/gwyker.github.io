@@ -1,7 +1,7 @@
 let frame = 0;
 let yoff = 0.0;
 let wave_crest = -100;
-let wave_trough = 0;
+let wave_trough = 0; 
 
 
 function setup() {
