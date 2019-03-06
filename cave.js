@@ -23,6 +23,7 @@ let hB = 80;
 let vR = 80;
 let vG = 80;
 let vB = 80;
+let a = 40;
 
 
 function setup() {
@@ -33,7 +34,7 @@ function setup() {
 }
 
 function waveTop1() {
-  fill(vR, vG, vB);
+  fill(vR, vG, vB, a);
   beginShape();
 
   let xoff = 0;
@@ -55,7 +56,7 @@ function waveTop1() {
   endShape(CLOSE);
 }
 function waveTop2() {
-  fill(vR, vG, vB);
+  fill(vR, vG, vB, a);
   beginShape();
 
   let xoff = 0;
@@ -78,7 +79,7 @@ function waveTop2() {
 }
 
 function waveLeft1() {
-  fill(hR, hG, hB);
+  fill(hR, hG, hB, a);
   beginShape();
 
   let xoff = 0;
@@ -100,7 +101,7 @@ function waveLeft1() {
   endShape(CLOSE);
 }
 function waveLeft2() {
-  fill(hR, hG, hB);
+  fill(hR, hG, hB, a);
   beginShape();
 
   let xoff = 0;
