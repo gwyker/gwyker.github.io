@@ -2,7 +2,7 @@ let frame = 0;
 let yoff = 0.0;
 let wave_crest = -100;
 let wave_trough = 0;
-
+  
 
 function setup() {
   createCanvas(1920, 1080);
@@ -27,7 +27,7 @@ function wave() {
   vertex(0, height);
   endShape(CLOSE);
 }
-
+ 
 function drawFlies() {
   let x = map(noise(xoff, yoff), 0, 1, 0, width);
   let y = map(noise(xoff, yoff), 0, 1, 0, height);
