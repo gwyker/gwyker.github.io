@@ -5,7 +5,7 @@ let wave_trough = 0;
 
 
 function setup() {
-  createCanvas(1600, 900);
+  createCanvas(1920, 1080);
   colorMode(RGB, 100);
   background(50);
   noCursor();
@@ -56,6 +56,10 @@ function draw() {
   if (frame % 5 == 0) {
     wave_crest++;
     wave_trough++;
+  }
+
+  if (wave_crest > height) {
+    noLoop();
   }
 }
 
