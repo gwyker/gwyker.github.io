@@ -27,7 +27,7 @@ function wave() {
   vertex(0, height);
   endShape(CLOSE);
 }
-
+ 
 function drawFlies() {
   let x = map(noise(xoff, yoff), 0, 1, 0, width);
   let y = map(noise(xoff, yoff), 0, 1, 0, height);
