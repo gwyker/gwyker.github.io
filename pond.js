@@ -36,20 +36,12 @@ function setup() {
   text("z, x : swirl", 100, height-80);
   text("click : mix", 100, height-60);
   
-  
-
   waves.push(new wave(100, 100, 800, 800, 30));
 
-  // noLoop();
   noCursor();
 
   stroke(50, 50, 50);
   noFill();
-
-  // stroke(0, 100, 0);
-  // ellipse(width/2, height/2, height-120, height-120);
-
-
 }
 
 function wave(x1, y1, x2, y2, angle) {
@@ -76,20 +68,11 @@ function wave(x1, y1, x2, y2, angle) {
   var self = this;
 
   this.update = function() {
-    // let xoff = 0;
-    // for (let x = 0; x <= width; x += 10) {
-    //   let y = map(noise(xoff, this.yoff), 0, 1, this.pos, this.pos + this.wave_gap);
-      
-    //   this.poly.push([x, y]);
-    //   xoff += 0.05;
-    // }
     this.yoff += 0.01;
     this.pos += 1;
 
     this.angle1+=step1;
     this.angle2-=step2;
-
-    // if (this.angle1
 
     this.xpos1 = width / 2 + this.diam / 2 * cos(this.angle1);
     this.ypos1 = height / 2 + this.diam / 2 * sin(this.angle1);
@@ -98,81 +81,11 @@ function wave(x1, y1, x2, y2, angle) {
   }
 
   this.draw = function() {
-    // fill(this.r,this.g, this.b, a);
-
-    // // add same line reversed and offset
-    // let len = this.poly.length;
-    // // for (let i = len-1; i >= 0; i--) {
-    // //   let p = this.poly[i];
-    // //   this.poly.push([p[0], p[1]+8]);
-    // // }
-
-    // let pol = new Polygon2D();
-
-    // // draw poly rotated at center
-    // // translate(this.poly[round(len/2)][0], this.poly[round(len/2)][1]);
-    // rotate(this.angle);
-    // noStroke();
-    // beginShape();
-    // this.poly.forEach(function(p, i) {
-    //   pol.add(new Vec2D(p[0], p[1]));
-    // });
-    // this.poly.slice().reverse().forEach(function(p, i) {
-    //   pol.add(new Vec2D(p[0], p[1]+8));
-    // });
-
-    // var clipper = new SutherlandHodgemanClipper(new Rect(new Vec2D(self.x1+125, self.y1+125), new Vec2D(self.x2-125, self.y2-125)));
-
-    // pol = clipper.clipPolygon(pol);
-
-    // pol.vertices.forEach(function(v) {
-    //   vertex(v.x, v.y);
-    // })
-    // endShape(CLOSE);
-    // // translate(-this.poly[round(len/2)][0], -this.poly[round(len/2)][1]);
-    // rotate(-this.angle);
-
-    // stroke(0, 100, 0);
-    // line(this.xpos1, this.ypos1, this.xpos2, this.ypos2);
     noStroke();
     fill(this.r, this.g, this.b, 20);
     noiseLine(this.xpos1, this.ypos1, this.xpos2, this.ypos2, this.yoff);
 
   }
-  // this.draw = function() {
-  //   fill(this.r,this.g, this.b, a);
-
-  //   // add same line reversed and offset
-  //   let len = this.poly.length;
-  //   // for (let i = len-1; i >= 0; i--) {
-  //   //   let p = this.poly[i];
-  //   //   this.poly.push([p[0], p[1]+8]);
-  //   // }
-
-  //   let pol = new Polygon2D();
-
-  //   // draw poly rotated at center
-  //   // translate(this.poly[round(len/2)][0], this.poly[round(len/2)][1]);
-  //   rotate(this.angle);
-  //   beginShape();
-  //   this.poly.forEach(function(p, i) {
-  //     pol.add(new Vec2D(p[0], p[1]));
-  //   });
-  //   this.poly.slice().reverse().forEach(function(p, i) {
-  //     pol.add(new Vec2D(p[0], p[1]+8));
-  //   });
-
-  //   var clipper = new SutherlandHodgemanClipper(new Rect(new Vec2D(self.x1+125, self.y1+125), new Vec2D(self.x2-125, self.y2-125)));
-
-  //   pol = clipper.clipPolygon(pol);
-
-  //   pol.vertices.forEach(function(v) {
-  //     vertex(v.x, v.y);
-  //   })
-  //   endShape(CLOSE);
-  //   // translate(-this.poly[round(len/2)][0], -this.poly[round(len/2)][1]);
-  //   rotate(-this.angle);
-  // }
 
   this.clear = function() {
     this.poly = [];
