@@ -60,9 +60,6 @@ function wave(x1, y1, x2, y2, angle) {
   this.angle2 = this.angle1 + 1;
   this.diam = height-120;
 
-  console.log(this.xpos1, this.ypos1, this.xpos2, this.ypos2)
-
-
   this.poly = [];
 
   this.pos = 0;
