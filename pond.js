@@ -5,7 +5,7 @@ let waves = [];
 let wave_gap = 100;
 let a = 40;
 let font = 1;
-let fontsize = 10;
+let fontsize = 18;
 
 let step1 = 1;
 let step2 = 1;
@@ -31,7 +31,8 @@ function setup() {
   textAlign(CENTER, CENTER);
 
   fill(100);
-  text("AAA", 50, 50);
+  text("a, s : wave", 100, height-100);
+  text("z, x : swirl", 100, height-90);
   
   
 
