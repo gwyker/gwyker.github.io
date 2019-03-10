@@ -24,6 +24,7 @@ function setup() {
   background(0);
   song.play();
   song.playMode('restart');
+  song.setLoop(true);
   textFont(font);
   textSize(fontsize);
   textAlign(CENTER, CENTER);
@@ -101,7 +102,7 @@ function draw() {
     });
   }
 
-  // if (frame % 60 == 0 && waves.length < 5) {
+  // if (frame % 60 == 0 && waves.length < 5xxzzz) {
   if (frame % 10 == 0 && waves.length < 5) {
     waves.push(new wave(100, 100, 800, 800, 30));
   }
