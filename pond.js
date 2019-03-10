@@ -10,13 +10,6 @@ let fontsize = 18;
 let step1 = 1;
 let step2 = 1;
 
-var Polygon2D = toxi.geom.Polygon2D,
-    Vec2D = toxi.geom.Vec2D,
-    Rect = toxi.geom.Rect,
-    Circle = toxi.geom.Circle,
-    SineWave = toxi.math.waves.SineWave,
-    SutherlandHodgemanClipper = toxi.geom.SutherlandHodgemanClipper;
-
 function preload() {
   font = loadFont('./AvenirLTStd_Light.ttf');
 }
