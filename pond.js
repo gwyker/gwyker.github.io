@@ -184,11 +184,13 @@ function wave(x1, y1, x2, y2, angle) {
 }
 
 function draw() {
-  waves.forEach(function(w) {
-    w.update();
-    w.draw();
-    w.clear();
-  });
+  if (frame > 60) {
+    waves.forEach(function(w) {
+      w.update();
+      w.draw();
+      w.clear();
+    });
+  }
 
   if (frame % 60 == 0 && waves.length < 5) {
     waves.push(new wave(100, 100, 800, 800, 30));
