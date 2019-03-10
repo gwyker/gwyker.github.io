@@ -4,6 +4,8 @@ let frame = 0;
 let waves = [];
 let wave_gap = 100;
 let a = 40;
+let font = 1;
+let fontsize = 10;
 
 let step1 = 1;
 let step2 = 1;
@@ -15,12 +17,23 @@ var Polygon2D = toxi.geom.Polygon2D,
     SineWave = toxi.math.waves.SineWave,
     SutherlandHodgemanClipper = toxi.geom.SutherlandHodgemanClipper;
 
+function preload() {
+  font = loadFont('./AvenirLTStd_Light.ttf');
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   colorMode(RGB, 100);
   angleMode(DEGREES);
   background(0);
+  textFont(font);
+  textSize(fontsize);
+  textAlign(CENTER, CENTER);
+
+  fill(100);
+  text("AAA", 50, 50);
+  
+  
 
   waves.push(new wave(100, 100, 800, 800, 30));
 
@@ -32,6 +45,8 @@ function setup() {
 
   // stroke(0, 100, 0);
   // ellipse(width/2, height/2, height-120, height-120);
+
+
 }
 
 function wave(x1, y1, x2, y2, angle) {
@@ -236,18 +251,18 @@ function mousePressed() {
 }
 
 function keyTyped() {
-  if (key === 'd') {
+  if (key === 'a') {
     // x_step += 0.01;
     waves.push(new wave(100, 100, 800, 800, 30));
   }
-  if (key === 'f') {
+  if (key === 's') {
     // x_step += 0.01;
     waves.pop();
   }
-  if (key === 'a') {
+  if (key === 'z') {
     step1++;
   }
-  if (key === 's') {
+  if (key === 'x') {
     step1--;
   }
 }
