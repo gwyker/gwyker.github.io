@@ -10,8 +10,11 @@ let fontsize = 18;
 let step1 = 1;
 let step2 = 1;
 
+var song;
+
 function preload() {
   font = loadFont('./AvenirLTStd_Light.ttf');
+  song = loadSound('./roach.mp3');
 }
 
 function setup() {
@@ -19,6 +22,8 @@ function setup() {
   colorMode(RGB, 100);
   angleMode(DEGREES);
   background(0);
+  song.play();
+  song.playMode('restart');
   textFont(font);
   textSize(fontsize);
   textAlign(CENTER, CENTER);
@@ -26,6 +31,7 @@ function setup() {
   fill(100);
   text("pond", 100, 100);
 
+  text("   q : sound", 100, height-120);
   text("a, s : wave", 100, height-100);
   text("z, x : swirl", 100, height-80);
   text("click : mix", 100, height-60);
@@ -258,5 +264,12 @@ function keyTyped() {
   }
   if (key === 'x') {
     step1--;
+  }
+  if (key === 'q') {
+    if (song.isPlaying()) {
+      song.pause();
+    } else {
+      song.play();
+    }
   }
 }
