@@ -32,9 +32,10 @@ function setup() {
   fill(100);
   text("pond", 100, 100);
 
-  text("   q : sound", 100, height-120);
-  text("a, s : wave", 100, height-100);
-  text("z, x : swirl", 100, height-80);
+  text("   q : sound", 100, height-140);
+  text("a, s : wave", 100, height-120);
+  text("z, x", 100, height-100);
+  text("c, v : swirl", 100, height-80);
   text("click : mix", 100, height-60);
   
   waves.push(new wave(100, 100, 800, 800, 30));
@@ -168,16 +169,22 @@ function mousePressed() {
 }
 
 function keyTyped() {
-  if (key === 'a') {
+  if (key === 's') {
     waves.push(new wave(100, 100, 800, 800, 30));
   }
-  if (key === 's') {
+  if (key === 'a') {
     waves.pop();
   }
   if (key === 'z') {
     step1++;
   }
   if (key === 'x') {
+    step1--;
+  }
+  if (key === 'c') {
+    step2++;
+  }
+  if (key === 'v') {
     step2--;
   }
   if (key === 'q') {
