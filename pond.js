@@ -31,8 +31,11 @@ function setup() {
   textAlign(CENTER, CENTER);
 
   fill(100);
+  text("pond", 100, 100);
+
   text("a, s : wave", 100, height-100);
-  text("z, x : swirl", 100, height-90);
+  text("z, x : swirl", 100, height-80);
+  text("click : mix", 100, height-60);
   
   
 
