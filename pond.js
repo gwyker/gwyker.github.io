@@ -34,7 +34,7 @@ function setup() {
 
   text("   q : sound", 100, height-140);
   text("a, s : wave", 100, height-120);
-  text("z, x", 100, height-100);
+  text("z, x,", 100, height-100);
   text("c, v : swirl", 100, height-80);
   text("click : mix", 100, height-60);
   
