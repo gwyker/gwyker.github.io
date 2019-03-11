@@ -14,7 +14,7 @@ var song;
 
 function preload() {
   font = loadFont('./AvenirLTStd_Light.ttf');
-  song = loadSound('./roach.mp3');
+  song = loadSound(['./roach.ogg', './roach.mp3']);
 }
 
 function setup() {
@@ -34,7 +34,7 @@ function setup() {
 
   text("   q : sound", 100, height-120);
   text("a, s : wave", 100, height-100);
-  text("z, x, c, v : swirl", 100, height-80);
+  text("z, x, c, v  : swirl", 100, height-80);
   text("click : mix", 100, height-60);
   
   waves.push(new wave(100, 100, 800, 800, 30));
@@ -43,6 +43,50 @@ function setup() {
 
   stroke(50, 50, 50);
   noFill();
+}
+
+function medallion() {
+  this.r = random(100);
+  this.g = random(100);
+  this.b = random(100);
+
+  this.x1 = x1;
+  this.y1 = y1;
+  this.x2 = x2;
+  this.y2 = y2;
+  this.angle = angle;
+  this.angle1 = random(0, 360);
+  this.angle2 = this.angle1 + 1;
+  this.diam = height-120;
+
+  this.wave_gap = wave_gap;
+
+  this.yoff = 0;
+
+  var self = this;
+
+  this.update = function() {
+    this.yoff += 0.01;
+
+    this.angle1+=step1;
+    this.angle2+=step2;
+
+    this.xpos1 = width / 2 + this.diam / 2 * cos(this.angle1);
+    this.ypos1 = height / 2 + this.diam / 2 * sin(this.angle1);
+    this.xpos2 = width / 2 + this.diam / 2 * cos(this.angle2);
+    this.ypos2 = height / 2 + this.diam / 2 * sin(this.angle2);
+  }
+
+  this.draw = function() {
+    noStroke();
+    fill(this.r, this.g, this.b, 20);
+    noiseLine(this.xpos1, this.ypos1, this.xpos2, this.ypos2, this.yoff);
+
+  }
+
+  this.clear = function() {
+
+  }
 }
 
 function wave(x1, y1, x2, y2, angle) {
@@ -59,9 +103,6 @@ function wave(x1, y1, x2, y2, angle) {
   this.angle2 = this.angle1 + 1;
   this.diam = height-120;
 
-  this.poly = [];
-
-  this.pos = 0;
   this.wave_gap = wave_gap;
 
   this.yoff = 0;
@@ -70,7 +111,6 @@ function wave(x1, y1, x2, y2, angle) {
 
   this.update = function() {
     this.yoff += 0.01;
-    this.pos += 1;
 
     this.angle1+=step1;
     this.angle2-=step2;
