@@ -22,7 +22,7 @@ function setup() {
 	noStroke();
 
 	let gridSize = 35;
-	max_radius = (gridSize / 2) + 3
+	max_radius = (gridSize / 2) + 1.5
 
 	for (let x = 0; x <= width + gridSize; x += gridSize) {
 		for (let y = 0; y <= height + gridSize; y += gridSize) {
