@@ -1,5 +1,4 @@
 let looping = true;
-let frame = 0;
 
 let waves = [];
 let wave_gap = 100;
@@ -36,10 +35,10 @@ function setup() {
   text("a, s : wave", 100, height-100);
   text("z, x, c, v  : swirl", 100, height-80);
   text("click : mix", 100, height-60);
-  
+
   waves.push(new wave(100, 100, 800, 800, 30));
 
-  noCursor();
+  // noCursor();
 
   stroke(50, 50, 50);
   noFill();
@@ -134,7 +133,7 @@ function wave(x1, y1, x2, y2, angle) {
 }
 
 function draw() {
-  if (frame > 60) {
+  if (frameCount > 60) {
     waves.forEach(function(w) {
       w.update();
       w.draw();
@@ -142,12 +141,12 @@ function draw() {
     });
   }
 
-  // if (frame % 60 == 0 && waves.length < 5xxzzz) {
-  if (frame % 10 == 0 && waves.length < 5) {
+  // if (frameCount % 60 == 0 && waves.length < 5xxzzz) {
+  if (frameCount % 10 == 0 && waves.length < 5) {
     waves.push(new wave(100, 100, 800, 800, 30));
   }
 
-  frame++;
+  frameCount++;
 }
 
 function noiseLine(x1, y1, x2, y2, yoff) {
@@ -162,19 +161,19 @@ function noiseLine(x1, y1, x2, y2, yoff) {
 
   // create noise line
   for (let l = 0; l <= line_len; l += 5) {
-    
+
     let pct = l/line_len
     let x = x1 + pct*(x2-x1)
     let y = y1 + pct*(y2-y1)
 
     let line_offset = map(noise(xoff, yoff), 0, 1, -wave_gap/2, wave_gap/2);
-    let dx = (line_offset / sqrt(1 + (sq(normal_slope)))); 
-    let dy = normal_slope * dx;  
+    let dx = (line_offset / sqrt(1 + (sq(normal_slope))));
+    let dy = normal_slope * dx;
     poly.push([x+dx, y+dy]);
 
     // add mirror side
-    dx = ((line_offset+2) / sqrt(1 + (sq(normal_slope)))); 
-    dy = normal_slope * dx; 
+    dx = ((line_offset+2) / sqrt(1 + (sq(normal_slope))));
+    dy = normal_slope * dx;
     poly_reverse.push([x+dx, y+dy]);
 
     xoff += 0.05;
