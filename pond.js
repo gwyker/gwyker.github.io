@@ -12,8 +12,8 @@ let step2 = 1;
 var song;
 
 function preload() {
-  font = loadFont('./AvenirLTStd_Light.ttf');
-  song = loadSound(['./roach.ogg', './roach.mp3']);
+  font = loadFont('assets/AvenirLTStd_Light.ttf');
+  song = loadSound(['assets/roach.ogg', 'assets/roach.mp3']);
 }
 
 function setup() {

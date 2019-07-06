@@ -1,6 +1,16 @@
 var looping = true
 var t = 0
 
+// texture for the particle
+let particle_texture = null;
+
+// variable holding our particle system
+let ps = [];
+
+function preload() {
+  particle_texture = loadImage("assets/particle_texture.png");
+}
+
 function setup() {
   createCanvas(displayWidth, displayHeight);
   colorMode(RGB, 255);
@@ -9,8 +19,23 @@ function setup() {
   noStroke();
 }
 
+function run_particle() {
+  let dx = map(mouseX, 0, width, -0.2, 0.2);
+  let wind = createVector(dx, 0);
+
+  ps.forEach(function (p) {
+    p.applyForce(wind);
+    p.run();
+    for (let i = 0; i < 2; i++) {
+      p.addParticle();
+    }
+  })
+}
+
 function draw() {
-  background(10, 10);
+  // background(10, 10);
+  background(0)
+  // run_particle();
   // make a x and y grid of ellipses
   for (let x = 0; x <= width; x = x + 30) {
     for (let y = 0; y <= height; y = y + 30) {
@@ -32,9 +57,10 @@ function draw() {
       to_color = color(0, 0, 255) // blue
       ypos_color = lerpColor(from_color, to_color, y_offset/20)
       fill(ypos_color)
+
       ellipse(myX, myY, 10); // draw particle
+      }
     }
-  }
 
   t += 0.01
 }
