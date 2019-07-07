@@ -9,6 +9,7 @@
 
 let font,
   fontsize = 20,
+  song,
   looping = true,
   mode = 'spiral',
   decayOpacity = 10,
@@ -22,6 +23,7 @@ let rateDisplay
 
 function preload() {
   font = loadFont('assets/AvenirLTStd_Light.ttf')
+  song = loadSound(['assets/dumb.ogg', 'assets/dumb.mp3'])
 }
 
 function setup() {
@@ -30,6 +32,8 @@ function setup() {
   cnv.style('display', 'block')
   colorMode(RGB,255)
   frameRate(35)
+  song.play()
+  song.setVolume(0.6)
 
   // Add one sun to center screen
   suns.push(new Sun(0.25*width, height/2, 30, 'yellow'))
@@ -148,9 +152,13 @@ function drawInfo() {
   ]
 
   let spirality = suns[0].rotSpeed
+  // spiralColor = (keyIsPressed && (key == 'z' || key == 'x')) ? 'purple' : 'white'
+  // decayColor = (keyIsPressed && (key == 'c' || key == 'v')) ? 'purple' : 'white'
+  spiralColor = 'white'
+  decayColor = 'white'
   tweaks = [
-    [`z - [ spirality : ${spirality} ] + x`, 'white'],
-    [`c - [ decay : ${decayOpacity} ] + v`, 'white'],
+    [`z - [ spirality : ${spirality.toFixed(1)} ] + x`, spiralColor],
+    [`c - [ decay : ${decayOpacity} ] + v`, decayColor],
   ]
 
   displayText(info, 0.03*width, 0.83*height)
@@ -200,12 +208,12 @@ function keyTyped() {
   // Change rotational speed of suns
   else if (key === 'z') {
     suns.forEach(function (s) {
-      s.rotSpeed -= 0.5
+      s.rotSpeed -= 0.1
     })
   }
   else if (key === 'x') {
     suns.forEach(function (s) {
-      s.rotSpeed += 0.5
+      s.rotSpeed += 0.1
     })
   }
   // Change redraw opacity (decay)
@@ -224,6 +232,10 @@ function keyTyped() {
     suns.forEach(function (s) {
       s.ftn.colors = globColor
     })
+  }
+
+  if (!song.isPlaying()) {
+    song.resume()
   }
 }
 
