@@ -32,8 +32,7 @@ function setup() {
   cnv.style('display', 'block')
   colorMode(RGB,255)
   frameRate(35)
-  song.play()
-  song.setVolume(0.6)
+
 
   // Add one sun to center screen
   suns.push(new Sun(0.25*width, height/2, 30, 'yellow'))
@@ -115,6 +114,7 @@ function Sun(x, y, w, c) {
         startX = this.x
         startY = this.y
         angle = getAngle(this.x, this.y, mouseX, mouseY)
+        angle += random(-20, 20)
         break
       case 'spiral':
         startX = this.x
@@ -236,9 +236,17 @@ function keyTyped() {
 
   if (!song.isPlaying()) {
     song.play()
+    song.setVolume(0.6)
   }
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+}
+
+function mousePressed() {
+  if (!song.isPlaying()) {
+    song.play()
+    song.setVolume(0.6)
+  }
 }
