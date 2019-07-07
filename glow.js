@@ -235,7 +235,7 @@ function keyTyped() {
   }
 
   if (!song.isPlaying()) {
-    song.resume()
+    song.play()
   }
 }
 
