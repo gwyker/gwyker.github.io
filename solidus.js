@@ -1,14 +1,21 @@
 var looping = true
 var t = 0
+var orbs = [],
+  orb_width = 40,
+  orb_height = 40,
+  x_range = 500,
+  y_range = 300,
+  bg_clr = 0,
+  bg_alpha = 100
 
-// texture for the particle
-let particle_texture = null;
-
-// variable holding our particle system
-let ps = [];
+// // texture for the particle
+// let particle_texture = null;
+//
+// // variable holding our particle system
+// let ps = [];
 
 function preload() {
-  particle_texture = loadImage("assets/particle_texture.png");
+  // particle_texture = loadImage("assets/particle_texture.png");
 }
 
 function setup() {
@@ -33,12 +40,12 @@ function run_particle() {
 }
 
 function draw() {
-  // background(10, 10);
-  background(0)
+  background(bg_clr, bg_alpha);
+  // background(0)
   // run_particle();
   // make a x and y grid of ellipses
-  for (let x = 0; x <= width; x = x + 30) {
-    for (let y = 0; y <= height; y = y + 30) {
+  for (let x = 0; x <= width; x = x + orb_width) {
+    for (let y = 0; y <= height; y = y + orb_height) {
       // starting point of each circle depends on mouse position
       const xAngle = map(mouseX, 0, width, -4 * PI, 4 * PI, true);
       const yAngle = map(mouseY, 0, height, -4 * PI, 4 * PI, true);
@@ -46,8 +53,8 @@ function draw() {
       const angle = xAngle * (x / width) + yAngle * (y / height);
 
       // each particle moves in a circle
-      var x_offset = 20 * sin(2 * PI * t + angle)
-      var y_offset = 20 * cos(2 * PI * t + angle)
+      var x_offset = x_range * sin(2 * PI * t + angle)
+      var y_offset = y_range * cos(2 * PI * t + angle)
       const myX = x + x_offset
       const myY = y + y_offset;
 
@@ -55,10 +62,12 @@ function draw() {
       // rand color
       from_color = color(255, 0, 0) // red
       to_color = color(0, 0, 255) // blue
-      ypos_color = lerpColor(from_color, to_color, y_offset/20)
+      ypos_color = lerpColor(from_color, to_color, y_offset/y_range)
       fill(ypos_color)
 
-      ellipse(myX, myY, 10); // draw particle
+      // ellipse(myX, myY, 10); // draw particle
+      ellipse(myX, myY, 10, 20); // draw particle
+      // rect(myX, myY, 10, 30); // draw particle
       }
     }
 
@@ -83,5 +92,17 @@ function keyTyped() {
       looping = true;
       loop();
     }
+  }
+  else if (key === 'a') {
+    bg_alpha += 1
+  }
+  else if (key === 's') {
+    bg_alpha -= 1
+  }
+  else if (key === 'z') {
+    y_range += 10
+  }
+  else if (key === 'x') {
+    y_range -= 10
   }
 }
