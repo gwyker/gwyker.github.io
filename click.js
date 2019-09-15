@@ -18,7 +18,7 @@ function setup() {
   //   }
   // }
   // Random locations
-  for (let i=0; i<15; i++) {
+  for (let i=0; i<35; i++) {
     pins.push(new Pin(random(width), random(height)))
   }
 
@@ -27,6 +27,8 @@ function setup() {
 
 function draw() {
   background(0)
+
+  faucet(width / 2, height / 2, width, 5)
 
   pins.forEach(function (p) {
     // p.update()
@@ -43,6 +45,23 @@ function draw() {
   })
 
 
+}
+
+// Recursive draw function
+function faucet(x, y, w, depth) {
+  if (depth == 0) {
+    return
+  }
+  print('ok')
+  // Draw circle
+  stroke(color('blue'))
+  noFill()
+  ellipse(x, y, w)
+
+  faucet(x - (w / 2), y, w / 2, depth - 1)
+  faucet(x + (w / 2), y, w / 2, depth - 1)
+  faucet(x, y - (w / 2), w / 2, depth - 1)
+  faucet(x, y + (w / 2), w / 2, depth - 1)
 }
 
 class Pin{
@@ -99,7 +118,7 @@ class Climber {
     this.color = color('yellow')
     this.strokeWidth = 3
     this.rotateSpeed = .003
-    this.angle = p5.Vector.fromAngle(0).mult(max(width, height) * 1.5)
+    this.angle = p5.Vector.fromAngle(45).mult(max(width, height) * 1.5)
   }
 
   update() {

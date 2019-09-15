@@ -59,10 +59,6 @@ function draw() {
 		c.draw()
 	})
 
-
-
-
-
 	frame++;
 }
 
