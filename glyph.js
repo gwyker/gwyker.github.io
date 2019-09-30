@@ -5,7 +5,7 @@ function setup() {
   colorMode(HSB)
   angleMode(DEGREES)
   for (let i = 0; i < 50; i++) {
-    curves.push(new Curve(randomInt(0, width), randomInt(0, height)))
+    curves.push(new Curve(randInt(0, width), randInt(0, height)))
   }
 }
 
@@ -20,17 +20,17 @@ class Curve {
   constructor(x, y) {
     self.x = x
     self.y = y
-  }
-wssssssaas
-  draw() {
-    let anchor1 = [self.x, self.y]
-    let anchor2 = [self.x+randomInt(-400, 400), self.y+randomInt(-400, 400)]
+    self.anchor1 = [self.x, self.y]
+    self.anchor2 = [self.x+randInt(-400, 400), self.y+randInt(-400, 400)]
 
-    let bend1 = [self.x+randomInt(-400, 400), self.y+randomInt(-400, 400)]
-    let bend2 = [self.x+randomInt(-400, 400), self.y+randomInt(-400, 400)]
+    self.bend1 = [self.x+randInt(-400, 400), self.y+randInt(-400, 400)]
+    self.bend2 = [self.x+randInt(-400, 400), self.y+randInt(-400, 400)]
+  }
+  draw() {
     stroke(color('blue'))
+    strokeWeight(6)
     noFill()
-    bezier(...anchor1, ...bend1, ...bend2, ...anchor2)
+    bezier(...self.anchor1, ...self.bend1, ...self.bend2, ...self.anchor2)
   }
 }
 
@@ -38,4 +38,8 @@ function randomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randInt(min, max) {
+    return random() * (max-min) + min;
 }
