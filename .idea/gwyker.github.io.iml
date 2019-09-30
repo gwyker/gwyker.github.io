@@ -4,8 +4,11 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" name="p5" level="application" />
     <orderEntry type="library" name="p5.sound" level="application" />
+=======
+>>>>>>> 9ecf49ca5dca00f02968bf742ba6ad2677a7687f
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
