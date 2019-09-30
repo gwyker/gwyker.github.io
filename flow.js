@@ -47,6 +47,7 @@ var speed,
 
 
 var gui
+var visible = false
 var scribble = new Scribble()
 
 function setup() {
@@ -104,6 +105,7 @@ function setup() {
     // 'windangle'
     // 'highColor'
     )
+  gui.hide()
 }
 
 function draw() {
