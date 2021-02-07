@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>shaders</title>
+    <meta charset="utf-8">
+    <title>GlslCanvas</title>
+
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+
+    <style>
+        body {
+            background: #101515;
+        }
+
+        #glslCanvas {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            /*transform: translate(-50%,-50%);*/
+        }
+
+         .blank {
+
+         }
+
+        #credits {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            text-align: right;
+            background: rgba(0,0,0,.5);
+            padding: 12px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin: 0px
+        }
+
+        .label {
+            color: white;
+            font-family: Helvetica, Arial, sans-serif;
+            text-decoration: none;
+            line-height: 0.0;
+        }
+
+        #title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        #author {
+            font-size: 14px;
+            font-style: italic;
+            font-weight: 100;
+        }
+    </style>
 </head>
 <body>
-<canvas class="glslCanvas" data-fragment-url="shaders/water.glsl" width="500" height="500"></canvas>
+    <canvas id="glslCanvas" class="glslCanvas" data-fragment-url="shaders/water.glsl" width="50%" height="50%"></canvas>
 </body>
+<script>
+    var canvas = document.getElementById("glslCanvas");
+    canvas.style.width = '40%';
+    canvas.style.height = '60%';
+</script>
 </html>
