@@ -1,3 +1,6 @@
+// Author @patriciogv - 2015
+// http://patriciogonzalezvivo.com
+
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -53,8 +56,8 @@ void main() {
     vec2 mouse = u_mouse.xy/u_resolution.xy;
     float dist = distance(st, mouse);
     st += smoothstep(.1, .3, dist);
-//     st.x += step(st.x-mouse.x, .1)*step(st.y-mouse.y, .1);
-//     st.y += step(st.x-mouse.x, .1)*step(st.y-mouse.y, .1);
+    // st.x += step(st.x-mouse.x, .1)*step(st.y-mouse.y, .1);
+    // st.y += step(st.x-mouse.x, .1)*step(st.y-mouse.y, .1);
     // st += st * sin(u_time*0.1)*3.0;
     vec3 color = vec3(0.0);
 

@@ -12,9 +12,12 @@
         }
 
         #glslCanvas {
-            position: absolute;
-            top: 20%;
-            left: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /*position: absolute;*/
+            /*top: 50%;*/
+            /*left: 50%;*/
             /*transform: translate(-50%,-50%);*/
         }
 
@@ -54,11 +57,22 @@
     </style>
 </head>
 <body>
-    <canvas id="glslCanvas" class="glslCanvas" data-fragment-url="shaders/water.glsl" width="50%" height="50%"></canvas>
+    <canvas id="glslCanvas" class="glslCanvas" data-fragment-url="shaders/fractal_noise.glsl" width="100" height="100"></canvas>
 </body>
 <script>
     var canvas = document.getElementById("glslCanvas");
-    canvas.style.width = '40%';
-    canvas.style.height = '60%';
+    console.log(canvas.width);
+    canvas.width = 800;
+    canvas.height = 800;
+    // canvas.style.paddingTop = window.innerHeight*.05+'px';
+    canvas.style.margin = 'auto';
+
+
+    // canvas.width = window.innerWidth*.5;
+    // canvas.height = window.innerHeight*.5;
+    // canvas.style.marginRight = 'auto';
+    // var parentStyle = canvas.parentElement.style;
+    // parentStyle.textAlign = "center";
+    // parentStyle.width = "100%";
 </script>
 </html>
