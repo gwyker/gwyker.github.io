@@ -12,9 +12,19 @@
       }
 
       /* Style the buttons that are used to open the tab content */
-      .tab button {
+      .tablinks {
           background-color: inherit;
           float: left;
+          border: none;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          transition: 0.3s;
+      }
+
+      .taboptions {
+          background-color: inherit;
+          float: right;
           border: none;
           outline: none;
           cursor: pointer;
@@ -71,6 +81,38 @@
           line-height: .9;
       }
 
+      body.small_cells  img{
+          width: 150px;
+      }
+
+      body.small_cells li {
+          width: 150px;
+      }
+
+      body.norm_cells img {
+          width: 270px;
+      }
+
+      body.norm_cells li {
+          width: 270px;
+      }
+
+      body.big_cells img {
+          width: 350px;
+      }
+
+      body.big_cells li {
+          width: 350px;
+      }
+
+      body.huge_cells img{
+          width: 500px;
+      }
+
+      body.huge_cells li {
+          width: 500px;
+      }
+
       .title {
           color: #5d9ae1;
       }
@@ -123,6 +165,7 @@
           }
       }
   </script>
+
   <script src="./bandcamp_merch.js"></script>
 </head>
 <body>
@@ -144,6 +187,11 @@
   <button class="tablinks" onclick="openCity(event, 'progressive-metal')">prog metal</button>
   <button class="tablinks" onclick="openCity(event, 'sludge-metal')">sludge metal</button>
   <button class="tablinks" onclick="openCity(event, 'thrash-metal')">thrash metal</button>
+
+  <button class="taboptions" id="huge_cells" onclick="changeSize(event, 'huge_cells')">huge</button>
+  <button class="taboptions" id="big_cells" onclick="changeSize(event, 'big_cells')">big</button>
+  <button class="taboptions active" id="norm_cells" onclick="changeSize(event, 'norm_cells')">normal</button>
+  <button class="taboptions" id="small_cells" onclick="changeSize(event, 'small_cells')">small</button>
 </div>
 
 <!--&lt;!&ndash; Tab content &ndash;&gt;-->
@@ -161,18 +209,18 @@
 <!--  <h3>Tokyo</h3>-->
 <!--  <p>Tokyo is the capital of Japan.</p>-->
 <!--</div>-->
-<div data-include="grids/hardcore_merch_grid.html"></div>
 <div data-include="grids/black_metal_merch_grid.html"></div>
 <div data-include="grids/death_metal_merch_grid.html"></div>
-<div data-include="grids/thrash_metal_merch_grid.html"></div>
-<div data-include="grids/grindcore_merch_grid.html"></div>
+<div data-include="grids/deathcore_merch_grid.html"></div>
 <div data-include="grids/doom_merch_grid.html"></div>
+<div data-include="grids/grindcore_merch_grid.html"></div>
+<div data-include="grids/hardcore_merch_grid.html"></div>
+<div data-include="grids/heavy_metal_merch_grid.html"></div>
+<div data-include="grids/metalcore_merch_grid.html"></div>
+<div data-include="grids/noise_merch_grid.html"></div>
 <div data-include="grids/post_hardcore_merch_grid.html"></div>
 <div data-include="grids/progressive_metal_merch_grid.html"></div>
-<div data-include="grids/metalcore_merch_grid.html"></div>
 <div data-include="grids/sludge_metal_merch_grid.html"></div>
-<div data-include="grids/heavy_metal_merch_grid.html"></div>
-<div data-include="grids/deathcore_merch_grid.html"></div>
-<div data-include="grids/noise_merch_grid.html"></div>
+<div data-include="grids/thrash_metal_merch_grid.html"></div>
 </body>
 </html>

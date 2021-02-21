@@ -18,3 +18,30 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+function changeSize(evt, size) {
+    var styles = `
+        .merch-grid-item {
+    `
+    // Change the size of each cell
+    document.getElementsByTagName('body')[0].className = size
+    // Change color of tab
+    document.getElementsByClassName('taboptions')
+    // Get all elements with class="taboptions" and remove the class "active"
+    taboptions = document.getElementsByClassName("taboptions");
+    for (i = 0; i < taboptions.length; i++) {
+      taboptions[i].className = taboptions[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(size).style.display = "block";
+    evt.currentTarget.className += " active";
+//    document.getElementsByClassName('merch-grid-item').style.width = '400px'
+//    items = document.getElementsByClassName('merch-grid-item')
+//    for (var i=0, len=items.length|0; i<len; i=i+1|0) {
+//        items[i].style.width = width
+//    }
+//    imgs = document.getElementsByTagName('img')
+//    for (var i=0, len=imgs.length|0; i<len; i=i+1|0) {
+//        imgs[i].style.width = width
+}
