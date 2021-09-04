@@ -22,8 +22,8 @@ let rateDisplay
 
 
 function preload() {
-  font = loadFont('assets/AvenirLTStd_Light.ttf')
-  song = loadSound(['assets/dumb.ogg', 'assets/dumb.mp3'])
+  font = loadFont('/assets/AvenirLTStd_Light.ttf')
+  song = loadSound(['/assets/dumb.ogg', '/assets/dumb.mp3'])
 }
 
 function setup() {
