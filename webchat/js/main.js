@@ -1,5 +1,5 @@
 // initialize websockets:
-var ws_uri = "ws://127.0.0.1:9600";
+var ws_uri = "ws://used.hondascooterparts.com:9600";
 var websocket = new WebSocket(ws_uri);
 
 
