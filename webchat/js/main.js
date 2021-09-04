@@ -5,7 +5,7 @@ var websocket = new WebSocket(ws_uri);
 
 // on websocket open:
 websocket.onopen = function(event) {
-    MessageAdd('<div class="message green">Welcome... to the Tant Hyperblurt Mainframe.</div>');
+    MessageAdd('<div class="message green">Welcome... to the Hyperblurt Mainframe.</div>');
 };
 
 
